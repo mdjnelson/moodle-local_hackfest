@@ -15,15 +15,20 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * The Plugin version information.
+ * Local hackfest external services.
  *
  * @package    local_hackfest
  * @copyright  2015 Mark Nelson <markn@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
-$plugin->version   = 2015080200; // The current plugin version (Date: YYYYMMDDXX).
-$plugin->requires  = 2015050500; // Requires this Moodle version.
-$plugin->component = 'local_hackfest'; // Full name of the plugin (used for diagnostics).
+$functions = array(
+    'local_hackfest_get_random_users_picture' => array(
+        'classname'   => 'local_hackfest\external',
+        'methodname'  => 'get_random_users_picture',
+        'classpath'   => '',
+        'description' => 'Return a random users picture.',
+        'type'        => 'read',
+        'capabilities'=> '',
+    )
+);

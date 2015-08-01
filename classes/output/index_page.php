@@ -42,9 +42,13 @@ class index_page implements renderable, templatable {
      * @return \stdClass
      */
     public function export_for_template(\renderer_base $output) {
+        // Get the data from the web service for the random users picture.
+        $userspicture = \local_hackfest\external::get_random_users_picture();
+
         $data = new \stdClass();
         $data->thispagerocks = false;
         $data->strfooter = get_string('footer', 'local_hackfest');
+        $data->userspicture = $userspicture;
 
         return $data;
     }
