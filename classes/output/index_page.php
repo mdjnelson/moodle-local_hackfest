@@ -46,7 +46,7 @@ class index_page implements renderable, templatable {
         $userspicture = \local_hackfest\external::get_random_users_picture();
 
         $data = new \stdClass();
-        $data->thispagerocks = false;
+        $data->thispagerocks = true;
         $data->strfooter = get_string('footer', 'local_hackfest');
         $data->userspicture = $userspicture;
 

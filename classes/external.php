@@ -65,7 +65,11 @@ class external extends \external_api {
         $user = $DB->get_records('user', array(), 'random()', '*', '0', '1');
         $user = reset($user);
 
-        return $OUTPUT->user_picture($user, array('size' => 100));
+        $html = '<div id=\'userpicture\'>';
+        $html .= $OUTPUT->user_picture($user, array('size' => 100));
+        $html .= '</div>';
+
+        return $html;
     }
 
     /**

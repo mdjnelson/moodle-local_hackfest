@@ -29,7 +29,13 @@
     <br /><br />
     {{{userspicture}}}
     <br /><br />
+    <button id="refresh">{{#str}}refresh{{/str}}</button>
     <div id="footer">
         {{strfooter}}
     </div>
 </div>
+{{#js}}
+    require(['local_hackfest/refresh'], function(refresh) {
+        refresh.refresh();
+    });
+{{/js}}
