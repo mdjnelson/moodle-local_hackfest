@@ -48,19 +48,12 @@ class external extends \external_api {
     }
 
     /**
-     * Expose to AJAX?
-     *
-     * @return boolean
-     */
-    public static function get_random_users_picture_is_allowed_from_ajax() {
-        return true;
-    }
-
-    /**
      * Wrap the core function get_random_users_picture.
      */
     public static function get_random_users_picture() {
-        global $DB, $OUTPUT;
+        global $DB, $OUTPUT, $PAGE;
+
+        $PAGE->set_context(\context_system::instance());
 
         $user = $DB->get_records('user', array(), 'random()', '*', '0', '1');
         $user = reset($user);
@@ -78,10 +71,6 @@ class external extends \external_api {
      * @return \external_description
      */
     public static function get_random_users_picture_returns() {
-        return new \external_single_structure(
-            array(
-                'picture' => new \external_value(PARAM_CLEANHTML, 'The HTML for the user\'s picture'),
-            )
-        );
+        return new \external_value(PARAM_RAW, 'The HTML for the user\'s picture');
     }
 }

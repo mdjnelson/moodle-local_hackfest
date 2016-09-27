@@ -30,5 +30,6 @@ $functions = array(
         'description' => 'Return a random users picture.',
         'type'        => 'read',
         'capabilities'=> '',
+        'ajax' => true
     )
 );
